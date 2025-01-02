@@ -12,6 +12,7 @@ import {
 import { CreateRecadosDto } from './dto/create-recados.dto';
 import { UpdateRecadosDto } from './dto/update-recados.dto';
 import { RecadosService } from './recados.service';
+import { PaginationDto } from 'src/common/dto/pagination.dto';
 
 @Controller('recados')
 export class RecadosController {
@@ -19,9 +20,8 @@ export class RecadosController {
 
   // Encontrar todos os recados
   @Get()
-  findAll(@Query() pagination: any) {
-    const { limit = 10, offset = 0 } = pagination;
-    // return `This routes returns all messages. Limit=${limit} and Offset=${offset}`;
+  findAll(@Query() paginatioDto: PaginationDto) {
+    const recados = this.recadosService.findAll(paginatioDto);
     return this.recadosService.findAll();
   }
 
