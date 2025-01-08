@@ -1,6 +1,6 @@
-import { PaginationDto } from 'src/common/dto/pagination.dto';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { PaginationDto } from 'src/common/dto/pagination.dto';
 import { Repository } from 'typeorm';
 import { PessoasService } from './../pessoas/pessoas.service';
 import { CreateRecadosDto } from './dto/create-recados.dto';
@@ -20,6 +20,7 @@ export class RecadosService {
   }
 
   async findAll(paginationDto?: PaginationDto) {
+    // console.log('RecadosService findAll executado');
     const { limit = 10, offset = 0 } = paginationDto;
 
     const recados = await this.recadoRepository.find({
