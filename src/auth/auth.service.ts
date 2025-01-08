@@ -19,7 +19,7 @@ export class AuthService {
     });
 
     if (!pessoa) {
-      throw new UnauthorizedException('Usuário ou senha invalidos');
+      throw new UnauthorizedException('Pessoa não existe.');
     }
 
     const passwordIsValid = await this.hashingService.compare(
