@@ -15,6 +15,6 @@ async function bootstrap() {
     new ParseIntIdPipe()
   );
 
-  await app.listen(process.env.PORT ?? 3003);
+  await app.listen(process.env.PORT ?? 3001);
 }
 bootstrap();
