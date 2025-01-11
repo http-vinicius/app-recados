@@ -8,8 +8,5 @@ export class CreateRecadosDto {
   readonly texto: string;
 
   @IsPositive()
-  deId: number;
-
-  @IsPositive()
   paraId: number;
 }
